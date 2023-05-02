@@ -1,4 +1,5 @@
 
+from documents.aadharcard import verify_aadharcard
 from documents.pancard import verify_pancard
 from waitress import serve
 from flask import Flask, jsonify, request
@@ -22,6 +23,10 @@ def update_features():
     status = verify_pancard(file_link)
     if status:
         doc_type = "Pan Card"
+    else:
+        status = verify_aadharcard(file_link)
+        if status:
+            doc_type = "Aadhar Card"
 
     # code for other documents
 
