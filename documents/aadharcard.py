@@ -6,7 +6,7 @@ from documents.extract_text import extract_text
 def verify_aadharcard(file_link):
     extracted_text = extract_text(file_link)
     print(extracted_text)
-    df = pd.read_csv("AadharCardData.csv")
+    df = pd.read_csv("AadharCardData.xlsx")
     NAME_LIST = df["Name"].tolist()
     ACCOUNT_NUMBER_LIST = df["Aadhar No."].tolist()
     DOB_LIST = df["Date of Birth"].tolist()
